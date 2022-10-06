@@ -17,3 +17,49 @@
 .navbar-collapse {
     flex-grow: 0.5;
 }
+h1{
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 0.7;
+}
+h2{
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 0.7;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    margin-bottom: 20%;
+    width: 100%;
+    z-index: 10;
+    height: 100%;
+}
+.main-text{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 50px 0;
+    padding: 0;
+    line-height: 1.4;
+}
+.row-left{
+    border-left: solid;
+    margin-top: 5%;
+}
+.row-right{
+    border-right: solid;
+    margin-top: 5%;
+}
+.row h3{
+    margin-bottom: 5%;
+}
