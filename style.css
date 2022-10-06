@@ -57,9 +57,41 @@ main{
     margin-top: 5%;
 }
 .row-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     border-right: solid;
     margin-top: 5%;
 }
 .row h3{
     margin-bottom: 5%;
+}
+.section2{
+    margin-top: 5%;
+}
+.section2 p {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.section2 h3{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.card{
+    text-align:left;
+    margin-bottom: 20px;
+    box-shadow: 0 0 7px 1px rgb(25 25 25 / 40%);
+}
+.card-link{
+    text-decoration:none;
+    color: #478ac9;
+}
+.col-card{
+    box-shadow: 0 0 7px 1px rgb(25 25 25 / 40%);
+    text-align:left;
+    padding: 20px;
+}
+.section2 .container{
+    margin-top: 5%;  
 }
