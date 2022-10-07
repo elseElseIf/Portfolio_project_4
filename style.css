@@ -4,7 +4,6 @@ header{
     position: fixed;
     background: white;
     z-index: 1000;
-
 }
 .nav-link {
     font-size: 1.2rem;
@@ -24,6 +23,7 @@ header{
 }
 .navbar-collapse {
     flex-grow: 0.5;
+    display: none;
 }
 h1{
     font-weight: 700;
@@ -177,12 +177,23 @@ footer a:hover {
 .card-info a{
     background-color: black;
 }
+.close-nav{
+    display: flex;
+}
+.close-nav .navbar-nav{
+    padding-left: 40%;
+}
+.hidden{
+    overflow:hidden;
+}
 
 @media (max-width: 600px) {
     header{
         top: 0%;
         width: 100%;
         position: relative;
-    
+    }
+    .section3{
+        display: none;
     }
 }
