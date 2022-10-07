@@ -136,6 +136,44 @@ export class App {
             </div>
         </div>
       </section>
+      <section>
+        <div class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active" id="carouselImg1">
+                    <iframe class="d-block" width="560" height="315" src="https://www.youtube.com/embed/i7ul4LNTnfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe>    
+                </div>
+                <div class="carousel-item" id="carouselImg2">
+                    <iframe class="d-block" width="560" height="315" src="https://www.youtube.com/embed/3GmCHRj8oHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-item " id="carouselImg3">
+                    <iframe class="d-block" width="560" height="315" src="https://www.youtube.com/embed/YuCRDlEFaw4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" id="slidePrev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" id="slideNext">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+      </section>
+      <footer>
+        <div class="container">
+            <div class="footer-contacts">
+                <a href="https://goo.gl/maps/7tRURyEuP2yEm8gE7"">114 Darlinghurst Rd, Darlinghurst NSW 2010, Australia</a>
+                <a href="tel:+61380285651">+61380285651</a>
+                <a href="mailto:support@linkyr.com">support@linkyr.com</a>
+            </div>
+            <div class="footer-about">
+                <a href="#">Disclaimer</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of use</a>
+            </div>
+            <div class="footer-copy">
+                <p> © 2022 Linkyr. All rights reserved</p>
+            </div>
+        </div>
+      </footer>
       `;
   }
 }
