@@ -1,18 +1,17 @@
 window.onload = function () {
   let navButton = document.getElementById("navButton");
-  let navButtonImg = `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");`;
   let leftАrrow = document.getElementById("slidePrev");
   let rightАrrow = document.getElementById("slideNext");
   let header = document.getElementById("header");
-  let navbarIcon = document.getElementById("navbarIcon");
   let navbar = document.getElementById("navbarSupportedContent");
   let navbarBrand = document.getElementById("navbarBrand");
-  let videos = [
-    "https://www.youtube.com/embed/i7ul4LNTnfI",
-    "https://www.youtube.com/embed/3GmCHRj8oHE",
-    "https://www.youtube.com/embed/YuCRDlEFaw4",
-  ];
+  const videos = document.querySelectorAll(".video");
 
+  let videosData = [
+    "https://youtu.be/i7ul4LNTnfI",
+    "https://youtu.be/3GmCHRj8oHE",
+    "https://youtu.be/YuCRDlEFaw4",
+  ];
   navButton.addEventListener("click", () => {
     navbar.classList.toggle("close-nav");
     if (navbar.classList.contains("close-nav")) {
@@ -29,34 +28,132 @@ window.onload = function () {
   });
 
   leftАrrow.addEventListener("click", () => {
-    if (document.getElementById("video1").src == videos[0]) {
-      document.getElementById("video1").src = videos[1];
-      document.getElementById("video2").src = videos[2];
-      document.getElementById("video3").src = videos[0];
-    } else if (document.getElementById("video1").src == videos[1]) {
-      document.getElementById("video1").src = videos[2];
-      document.getElementById("video2").src = videos[0];
-      document.getElementById("video3").src = videos[1];
-    } else if (document.getElementById("video1").src == videos[2]) {
-      document.getElementById("video1").src = videos[0];
-      document.getElementById("video2").src = videos[1];
-      document.getElementById("video3").src = videos[2];
+    if (
+      document.getElementById("video1").getAttribute("data-video") ==
+      videosData[0]
+    ) {
+      document
+        .getElementById("video1")
+        .setAttribute("data-video", videosData[1]);
+      document
+        .getElementById("video2")
+        .setAttribute("data-video", videosData[2]);
+      document
+        .getElementById("video3")
+        .setAttribute("data-video", videosData[0]);
+    } else if (
+      document.getElementById("video1").getAttribute("data-video") ==
+      videosData[1]
+    ) {
+      document
+        .getElementById("video1")
+        .setAttribute("data-video", videosData[2]);
+      document
+        .getElementById("video2")
+        .setAttribute("data-video", videosData[0]);
+      document
+        .getElementById("video3")
+        .setAttribute("data-video", videosData[1]);
+    } else if (
+      document.getElementById("video1").getAttribute("data-video") ==
+      videosData[2]
+    ) {
+      document
+        .getElementById("video1")
+        .setAttribute("data-video", videosData[0]);
+      document
+        .getElementById("video2")
+        .setAttribute("data-video", videosData[1]);
+      document
+        .getElementById("video3")
+        .setAttribute("data-video", videosData[2]);
     }
+    addVideo(videos);
   });
 
   rightАrrow.addEventListener("click", () => {
-    if (document.getElementById("video1").src == videos[0]) {
-      document.getElementById("video1").src = videos[2];
-      document.getElementById("video2").src = videos[0];
-      document.getElementById("video3").src = videos[1];
-    } else if (document.getElementById("video1").src == videos[1]) {
-      document.getElementById("video1").src = videos[0];
-      document.getElementById("video2").src = videos[1];
-      document.getElementById("video3").src = videos[2];
-    } else if (document.getElementById("video1").src == videos[2]) {
-      document.getElementById("video1").src = videos[1];
-      document.getElementById("video2").src = videos[2];
-      document.getElementById("video3").src = videos[0];
+    if (
+      document.getElementById("video1").getAttribute("data-video") ==
+      videosData[0]
+    ) {
+      document
+        .getElementById("video1")
+        .setAttribute("data-video", videosData[2]);
+      document
+        .getElementById("video2")
+        .setAttribute("data-video", videosData[0]);
+      document
+        .getElementById("video3")
+        .setAttribute("data-video", videosData[1]);
+    } else if (
+      document.getElementById("video1").getAttribute("data-video") ==
+      videosData[1]
+    ) {
+      document
+        .getElementById("video1")
+        .setAttribute("data-video", videosData[0]);
+      document
+        .getElementById("video2")
+        .setAttribute("data-video", videosData[1]);
+      document
+        .getElementById("video3")
+        .setAttribute("data-video", videosData[2]);
+    } else if (
+      document.getElementById("video1").getAttribute("data-video") ==
+      videosData[2]
+    ) {
+      document
+        .getElementById("video1")
+        .setAttribute("data-video", videosData[1]);
+      document
+        .getElementById("video2")
+        .setAttribute("data-video", videosData[2]);
+      document
+        .getElementById("video3")
+        .setAttribute("data-video", videosData[0]);
     }
+    addVideo(videos);
   });
+  // generate video url
+  let generateUrl = function (id) {
+    let query = "?rel=0&showinfo=0&autoplay=1";
+
+    return "https://www.youtube.com/embed/" + id + query;
+  };
+
+  // creating iframe
+  let createIframe = function (id) {
+    let iframe = document.createElement("iframe");
+
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("allow", "autoplay; encrypted-media");
+    iframe.setAttribute("src", generateUrl(id));
+
+    return iframe;
+  };
+  // main code
+  let addVideo = function (videos) {
+    videos.forEach((el) => {
+      let videoHref = el.getAttribute("data-video");
+
+      let deletedLength = "https://youtu.be/".length;
+
+      let videoId = videoHref.substring(deletedLength, videoHref.length);
+
+      let img = el.querySelector("img");
+      let youtubeImgSrc =
+        "https://i.ytimg.com/vi/" + videoId + "/maxresdefault.jpg";
+      img.setAttribute("src", youtubeImgSrc);
+
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let iframe = createIframe(videoId);
+        el.querySelector("img").remove();
+        el.appendChild(iframe);
+        el.querySelector("button").remove();
+      });
+    });
+  };
+  addVideo(videos);
 };
