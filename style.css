@@ -166,7 +166,6 @@ footer a:hover {
 .card-body{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 .card-info .card-body{
     padding: 0;
